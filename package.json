@@ -1,0 +1,19 @@
+{
+  "name": "Marker",
+  "version": "1.0.0",
+  "description": "基于Electron的Markdown编辑器",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "git@github.com:Abraham9511/Marker.git",
+  "author": "ougwen1235 <ougwen1235@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "Electron",
+    "Markdown"
+  ],
+  "dependencies": {
+    "electron": "^1.6.6"
+  }
+}
