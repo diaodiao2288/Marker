@@ -1,8 +1,3 @@
-const electron = require('electron');
-
-const app = electron.app;
-const Menu = electron.Menu;
-
 // 定义菜单栏
 const template = [
   {

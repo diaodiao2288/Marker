@@ -1,6 +1,9 @@
+const electron = require('electron');
 const toolUtil = require('./toolUtil').toolUtil;
 
-$('.outer-header').delegate('img', 'click', function () {
+const ipcRenderer = electron.ipcRenderer;
+
+$('.outer-header').delegate('img', 'click', function click() {
   const index = $(this).attr('data');
   if (index === 'bold') {
     toolUtil.addBold();
@@ -25,6 +28,10 @@ $('.outer-header').delegate('img', 'click', function () {
   }
 });
 
-$('#editor').on('input propertychange', function () {
+$('#editor').on('input propertychange', () => {
   $('#preview').html($(this).val());
+});
+
+ipcRenderer.on('SC', (event, args) => {
+  toolUtil[args]();
 });

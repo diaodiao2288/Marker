@@ -45,7 +45,7 @@ html, body {
   height: 5%;
 }
 
-#editor, #preview {
+#editor, #preview, #scrollBar {
   height: calc(95% - 1px);
   width: 100%;
   font-size: 14px;
@@ -58,13 +58,16 @@ html, body {
   outline: none;
 }
 
+/*当该行不足以存放整个句子时进行换行*/
+#preview {
+  word-wrap: break-word;
+}
+
 #scrollBarContainer {
   height: 100%;
   width: 1%;
 }
 
 #scrollBar {
-  height: 95%;
-  width: 100%;
   background-color: #E9EDEB;
 }

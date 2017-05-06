@@ -32,7 +32,7 @@ const addContent = (content, start, end) => {
   // 并不会触发input和propertyChange事件
   // 所以这里需要自行待用该事件
   $('#preview').html($('#editor').val());
-}
+};
 
 const toolUtil = {
   addBold: () => {

@@ -1,8 +1,9 @@
 const electron = require('electron');
 const path = require('path');
 const url = require('url');
-const storageUtil = require('./app/js/storageUtil');
-const menuTemplate = require('./app/js/menuTemplate');
+const storageUtil = require('./app/js/main/storageUtil');
+const menuTemplate = require('./app/js/main/menuTemplate');
+const shortCutUtil = require('./app/js/main/shortCutUtil');
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -30,7 +31,6 @@ function createWindow() {
   mainWindow.on('ready-to-show', () => {
     mainWindow.show();
     mainWindow.focus();
-    console.log(mainWindow.isFocused());
 
     // 将窗口最大化
     if (windowState && windowState.isMaximized) {
@@ -59,11 +59,19 @@ function createWindow() {
     });
   });
 
+  // 添加菜单
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
+
+  // 添加全局快捷键
+  shortCutUtil.registerSC();
 }
 
 app.on('ready', createWindow);
+
+app.on('will-quit', () => {
+  shortCutUtil.unregisterSC();
+});
 
 app.on('window-all-closed', () => {
   // 在 OS X 上，通常用户在明确地按下 Cmd + Q 之前
