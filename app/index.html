@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Marker</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+  </head>
+  <body>
+    <header class="outer-header">
+      <img src="../public/bold.svg" data="bold">
+      <img src="../public/italic.svg" data="italic">
+      <img src="../public/link.svg" data="link">
+      <img src="../public/quotation.svg" data="quotation">
+      <img src="../public/code.svg" data="code">
+      <img src="../public/img.svg" data="img">
+      <img src="../public/orderlist.svg" data="orderlist">
+      <img src="../public/list.svg" data="list">
+      <img src="../public/title.svg" data="title">
+      <img src="../public/line.svg" data="line">
+    </header>
+    <div id="page">
+      <section id="editorContainer">
+        <header class="inner-header"></header>
+        <textarea id="editor" autofocus="autofocus"></textarea>
+      </section>
+      <div id="scrollBarContainer">
+        <header class="inner-header"></header>
+        <div id="scrollBar"></div>
+      </div>
+      <section id="previewContainer">
+        <header class="inner-header"></header>
+        <div id="preview"></div>
+      </section>
+    </div>
+  </body>
+
+  <!--解决引进jquery的bug-->
+  <!--http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined-->
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script>
+    $(document).ready(() => {
+      require('./js/renderer.js');
+    })
+  </script>
+</html>

@@ -1,0 +1,70 @@
+html, body, div, header, section, textarea {
+  margin: 0;
+  padding: 0;
+  /*
+    将font-size设为0，
+    消除元素间因空格而引起的间隙
+    */
+  font-size: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.outer-header {
+  height: 5%;
+  width: 100%;
+  background-color: #434443;
+  display: flex;
+  align-items: center;
+}
+
+.outer-header img {
+  margin: 5px 10px;
+}
+
+/*
+  将两个元素中部对齐
+  酱紫可以解决当预览框增加内容时会整体布局下移的问题
+  */
+#page {
+  height: 95%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#editorContainer, #previewContainer {
+  height: 100%;
+  width: 49.5%;
+}
+
+.inner-header {
+  height: 5%;
+}
+
+#editor, #preview {
+  height: calc(95% - 1px);
+  width: 100%;
+  font-size: 14px;
+  border: none;
+  border-top: 1px solid #000000;
+}
+
+#editor {
+  display: block;
+  outline: none;
+}
+
+#scrollBarContainer {
+  height: 100%;
+  width: 1%;
+}
+
+#scrollBar {
+  height: 95%;
+  width: 100%;
+  background-color: #E9EDEB;
+}
