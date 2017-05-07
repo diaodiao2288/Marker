@@ -1,3 +1,8 @@
+const electron = require('electron');
+const fileUtil = require('./fileUtil');
+
+const shell = electron.shell;
+
 // 定义菜单栏
 const template = [
   {
@@ -5,6 +10,8 @@ const template = [
     submenu: [
       {
         label: 'New File',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.newFile(); },
       },
       {
         label: 'Open...',
@@ -23,6 +30,12 @@ const template = [
       },
       {
         label: 'Close All',
+      },
+      {
+        label: 'New Tab',
+      },
+      {
+        label: 'ToPdf',
       },
     ],
   },
@@ -107,6 +120,7 @@ const template = [
     submenu: [
       {
         label: 'About Marker',
+        click() { shell.openExternal('https://github.com/Abraham9511/Marker'); },
       },
     ],
   },
