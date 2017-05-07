@@ -15,27 +15,43 @@ const template = [
       },
       {
         label: 'Open...',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.open(); },
       },
       {
         label: 'Save',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.save(); },
       },
       {
         label: 'Save As...',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.saveAs(); },
       },
       {
         label: 'Save All',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.saveAll(); },
       },
       {
         label: 'Close File',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.closeFile(); },
       },
       {
         label: 'Close All',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.clossAll(); },
       },
       {
         label: 'New Tab',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.newTab(); },
       },
       {
         label: 'ToPdf',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.toPdf(); },
       },
     ],
   },
@@ -85,12 +101,18 @@ const template = [
       },
       {
         label: 'Increase Font Size',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.incressFontSize(); },
       },
       {
         label: 'Decrease Font Size',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.decreaseFontSize(); },
       },
       {
         label: 'Reset Font Size',
+        accelerator: 'CommandOrControl+N',
+        click() { fileUtil.resetFontSize(); },
       },
     ],
   },
