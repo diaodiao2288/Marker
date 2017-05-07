@@ -28,7 +28,8 @@ $('.outer-header').delegate('img', 'click', function click() {
   }
 });
 
-$('#editor').on('input propertychange', () => {
+// 这里不能使用箭头函数
+$('#editor').on('input propertychange', function render() {
   $('#preview').html($(this).val());
 });
 

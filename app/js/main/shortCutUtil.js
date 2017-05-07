@@ -74,6 +74,18 @@ const addLineSC = () => {
   });
 };
 
+const addLineNextSC = () => {
+  globalShortcut.register('CommandOrControl+Return', () => {
+    webContent.send('SC', 'addLineNext');
+  });
+};
+
+const addLineThisSC = () => {
+  globalShortcut.register('CommandOrControl+Shift+Return', () => {
+    webContent.send('SC', 'addLineThis');
+  });
+};
+
 const registerSC = () => {
   getWebContent();
   addBoldSC();
@@ -86,6 +98,8 @@ const registerSC = () => {
   addListSC();
   addTitleSC();
   addLineSC();
+  addLineNextSC();
+  addLineThisSC();
 };
 
 const unregisterSC = () => {
