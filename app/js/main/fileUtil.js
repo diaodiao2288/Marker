@@ -33,15 +33,3 @@ exports.newTab = () => {
 exports.toPdf = () => {
   console.log('toPdf...');
 };
-
-exports.incressFontSize = () => {
-  console.log('incressFontSize...');
-};
-
-exports.decreaseFontSize = () => {
-  console.log('decreaseFontSize...');
-};
-
-exports.resetFontSize = () => {
-  console.log('resetFontSize...');
-};

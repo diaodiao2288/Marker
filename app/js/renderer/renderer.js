@@ -1,5 +1,6 @@
 const electron = require('electron');
 const toolUtil = require('./toolUtil').toolUtil;
+const cursorUtil = require('./cursorUtil');
 const reload = require('./reload').reload;
 
 const ipcRenderer = electron.ipcRenderer;
@@ -35,4 +36,8 @@ $('#editor').on('input propertychange', () => {
 
 ipcRenderer.on('SC', (event, args) => {
   toolUtil[args]();
+});
+
+ipcRenderer.on('SE', (event, args) => {
+  cursorUtil[args]();
 });

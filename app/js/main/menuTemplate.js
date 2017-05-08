@@ -1,5 +1,6 @@
 const electron = require('electron');
 const fileUtil = require('./fileUtil');
+const selectionUtil = require('./selectionUtil');
 
 const shell = electron.shell;
 
@@ -74,10 +75,21 @@ const template = [
         role: 'paste',
       },
       {
+        role: 'delete',
+      },
+    ],
+  },
+  {
+    label: 'Selection',
+    submenu: [
+      {
         role: 'selectall',
+        accelerator: 'CommandOrControl+A',
       },
       {
-        role: 'delete',
+        label: 'Expand Selection to Line',
+        accelerator: 'CommandOrControl+L',
+        click() { selectionUtil.expandLine(); },
       },
     ],
   },
@@ -98,21 +110,6 @@ const template = [
       },
       {
         role: 'togglefullscreen',
-      },
-      {
-        label: 'Increase Font Size',
-        accelerator: 'CommandOrControl+N',
-        click() { fileUtil.incressFontSize(); },
-      },
-      {
-        label: 'Decrease Font Size',
-        accelerator: 'CommandOrControl+N',
-        click() { fileUtil.decreaseFontSize(); },
-      },
-      {
-        label: 'Reset Font Size',
-        accelerator: 'CommandOrControl+N',
-        click() { fileUtil.resetFontSize(); },
       },
     ],
   },

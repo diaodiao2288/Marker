@@ -79,3 +79,31 @@ exports.moveCursorThisLineStart = () => {
 
   editor.setSelectionRange(index, index);
 };
+
+// 按行选择
+exports.expandLine = () => {
+  const editor = $('#editor')[0];
+  const value = $('#editor').val();
+  const start = editor.selectionStart;
+  const end = editor.selectionEnd;
+  const indexBeforeStart = value.lastIndexOf('\n', start);
+  const indexAfterStart = value.indexOf('\n', start);
+  const indexBeforeEnd = value.lastIndexOf('\n', end);
+  const indexAfterEnd = value.indexOf('\n', end);
+
+  // 说明所有内容都已经被选择了
+  if (start === 0 && end === value.length) {
+    return; // eslint-disable-line
+  } else if (indexBeforeStart === indexBeforeEnd && indexAfterStart === indexAfterEnd) {
+    // 说明这是第一次按行选择
+    // 加1，使得高亮位于换行符后面
+    const index1 = (indexBeforeStart === -1) ? 0 : indexBeforeStart + 1;
+    const index2 = (indexAfterStart === -1) ? value.length : indexAfterStart;
+    editor.setSelectionRange(index1, index2);
+  } else {
+    const index1 = (indexBeforeStart === -1) ? 0 : indexBeforeStart + 1;
+    const tempIndex = value.indexOf('\n', indexAfterEnd + 1);
+    const index2 = (tempIndex === -1) ? value.length : tempIndex;
+    editor.setSelectionRange(index1, index2);
+  }
+};
