@@ -36,16 +36,35 @@ html, body {
   align-items: center;
 }
 
+#lineNumberContainer {
+  height: 100%;
+  width: 30px;
+}
+
+#lineNumber {
+  background-color: #262821;
+}
+
+/*必须设置子元素字体大小不为零*/
+#lineNumber div {
+  font-size: 14px;
+  text-align: right;
+  margin: 1px 10px 1px 0;
+  color: #909089;
+}
+
 #editorContainer, #previewContainer {
   height: 100%;
-  width: 49.5%;
+  /*让这两个元素平分剩下的空间*/
+  flex-grow: 1;
+  flex-basis: 0;
 }
 
 .inner-header {
   height: 5%;
 }
 
-#editor, #preview, #scrollBar {
+#editor, #preview, #scrollBar, #lineNumber {
   height: calc(95% - 1px);
   width: 100%;
   font-size: 14px;
@@ -65,7 +84,7 @@ html, body {
 
 #scrollBarContainer {
   height: 100%;
-  width: 1%;
+  width: 5px;
 }
 
 #scrollBar {

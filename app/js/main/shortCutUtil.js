@@ -27,7 +27,7 @@ const addItalicSC = () => {
 };
 
 const addLinkSC = () => {
-  globalShortcut.register('CommandOrControl+L', () => {
+  globalShortcut.register('CommandOrControl+H', () => {
     webContent.send('SC', 'addLink');
   });
 };
@@ -63,7 +63,7 @@ const addListSC = () => {
 };
 
 const addTitleSC = () => {
-  globalShortcut.register('CommandOrControl+H', () => {
+  globalShortcut.register('CommandOrControl+T', () => {
     webContent.send('SC', 'addTitle');
   });
 };

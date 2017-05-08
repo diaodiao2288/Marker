@@ -1,5 +1,6 @@
 const electron = require('electron');
 const toolUtil = require('./toolUtil').toolUtil;
+const reload = require('./reload').reload;
 
 const ipcRenderer = electron.ipcRenderer;
 
@@ -28,9 +29,8 @@ $('.outer-header').delegate('img', 'click', function click() {
   }
 });
 
-// 这里不能使用箭头函数
-$('#editor').on('input propertychange', function render() {
-  $('#preview').html($(this).val());
+$('#editor').on('input propertychange', () => {
+  reload();
 });
 
 ipcRenderer.on('SC', (event, args) => {
